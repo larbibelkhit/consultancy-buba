@@ -43,7 +43,7 @@ export default function ContactSection() {
             lineHeight={1.15}
             color="ivory"
           >
-            Let's discuss
+            Let&apos;s discuss
             <br />
             your{' '}
             <Box as="em" fontStyle="italic" color="gold">project.</Box>

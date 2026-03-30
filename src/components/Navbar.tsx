@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Box, Flex, Text, Link, HStack } from '@chakra-ui/react'
+import { Box, Flex, Link, HStack } from '@chakra-ui/react'
 
 const links = [
   { label: 'About',    href: '#about' },

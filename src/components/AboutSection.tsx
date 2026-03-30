@@ -59,7 +59,7 @@ export default function AboutSection() {
             decades not just cooking, but building.
           </Text>
           <Text fontSize="0.95rem" color="muted" lineHeight={1.9} mb={6} fontWeight="300">
-            Born in Morocco and shaped by the demanding standards of London's fine
+            Born in Morocco and shaped by the demanding standards of London&apos;s fine
             dining circuit, Bubker rose to become Global Executive Head Chef for the
             acclaimed Sumosan group, overseeing the opening and operation of
             restaurants across Europe, the Middle East, and beyond.
@@ -72,8 +72,8 @@ export default function AboutSection() {
           </Text>
           <Box w="40px" h="1px" bg="gold" opacity={0.4} my={10} />
           <Text fontSize="0.95rem" color="muted" lineHeight={1.9} fontWeight="300">
-            Bubker's approach is hands-on and uncompromising. He believes that a
-            restaurant's lasting success is built in the details — in the quality of
+            Bubker&apos;s approach is hands-on and uncompromising. He believes that a
+            restaurant&apos;s lasting success is built in the details — in the quality of
             the team assembled, the coherence of the menu, and the operational rigour
             behind every service.
           </Text>

@@ -89,7 +89,7 @@ export default function CaseStudySection() {
           >
             In 2002, Bubker joined the Sumosan group at their celebrated Albemarle
             Street address in London — the restaurant that would become the foundation
-            for one of the world's most recognised contemporary Japanese brands.
+            for one of the world&apos;s most recognised contemporary Japanese brands.
           </Text>
           <Text fontSize="0.95rem" color="muted" lineHeight={1.9} mb={6} fontWeight="300">
             Over more than two decades, he has served as Executive Head Chef and Global

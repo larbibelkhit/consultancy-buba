@@ -1,7 +1,3 @@
-'use client'
-
-import { Box, Grid, Heading, Text, List, ListItem } from '@chakra-ui/react'
-import { motion } from 'framer-motion'
 import SectionLabel from './SectionLabel'
 
 const services = [
@@ -43,162 +39,60 @@ const services = [
   },
 ]
 
-const ease = [0.22, 1, 0.36, 1] as const
-
 export default function ServicesSection() {
   return (
-    <Box
+    <section
       id="services"
-      as="section"
-      className="services-section"
-      scrollMarginTop="80px"
-      px={{ base: 8, md: 16 }}
-      py={{ base: 20, md: 32 }}
+      className="scroll-mt-20 px-8 md:px-16 py-20 md:py-32"
     >
       <SectionLabel>Services</SectionLabel>
 
-      <motion.div
-        initial={{ opacity: 0, y: 22 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.75, ease }}
-      >
-        <Heading
-          className="services-headline"
-          fontFamily="heading"
-          fontWeight="300"
-          fontSize={{ base: '2.2rem', md: '3.2rem', lg: '3.8rem' }}
-          lineHeight={1.15}
-          color="ivory"
-        >
-          What{' '}
-          <Box as="em" fontStyle="italic" color="gold">Buba Consultancy</Box>
-          <br />brings to your project.
-        </Heading>
-      </motion.div>
+      <h2 className="font-heading font-light text-[2.2rem] md:text-[3.2rem] lg:text-[3.8rem] leading-[1.15] text-ivory">
+        What <em className="italic text-gold">Buba Consultancy</em>
+        <br />brings to your project.
+      </h2>
 
-      <motion.div
-        initial={{ opacity: 0, y: 22 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.75, delay: 0.08, ease }}
-      >
-        <Text
-          className="services-intro"
-          mt={6}
-          mb={16}
-          maxW="600px"
-          fontSize="0.95rem"
-          color="muted"
-          lineHeight={1.9}
-          fontWeight="300"
-        >
-          Every engagement is bespoke. Whether you are opening your first restaurant
-          or scaling a group, the consultancy is structured around your specific
-          needs — from pre-launch strategy through to operational handover.
-        </Text>
-      </motion.div>
+      <p className="mt-6 mb-16 max-w-[600px] text-[0.95rem] text-muted leading-[1.9] font-light">
+        Every engagement is bespoke. Whether you are opening your first restaurant
+        or scaling a group, the consultancy is structured around your specific
+        needs — from pre-launch strategy through to operational handover.
+      </p>
 
-      <Grid
-        className="services-grid"
-        templateColumns={{ base: '1fr', md: '1fr 1fr', lg: 'repeat(3, 1fr)' }}
-        gap="1px"
-        bg="border"
-        border="1px solid"
-        borderColor="border"
-      >
-        {services.map((s, i) => (
-          <motion.div
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
+        {services.map((s) => (
+          <div
             key={s.number}
-            initial={{ opacity: 0, y: 32 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.75, delay: i * 0.1, ease }}
+            className="bg-deep px-8 md:px-10 py-10 md:py-14 relative overflow-hidden group hover:bg-panel transition-colors duration-300"
           >
-            <Box
-              className="services-card"
-              bg="deep"
-              px={{ base: 8, md: 10 }}
-              py={{ base: 10, md: 14 }}
-              position="relative"
-              overflow="hidden"
-              role="group"
-              transition="background 0.3s"
-              _hover={{ bg: 'panel' }}
-              _before={{
-                content: '""',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '2px',
-                height: 0,
-                bg: 'gold',
-                transition: 'height 0.4s ease',
-              }}
-              sx={{ '&:hover::before': { height: '100%' } }}
-            >
-              <Text
-                fontFamily="heading"
-                fontSize="4rem"
-                fontWeight="300"
-                color="border"
-                lineHeight={1}
-                mb={8}
-                transition="color 0.3s"
-                _groupHover={{ color: 'smMuted' }}
-              >
-                {s.number}
-              </Text>
+            {/* Gold left bar */}
+            <div className="absolute top-0 left-0 w-0.5 h-0 bg-gold group-hover:h-full transition-[height] duration-400" />
 
-              <Heading
-                as="h3"
-                className="services-card-title"
-                fontFamily="heading"
-                fontSize="1.5rem"
-                fontWeight="400"
-                color="ivory"
-                lineHeight={1.2}
-                mb={5}
-              >
-                {s.title}
-              </Heading>
+            <span className="block font-heading text-[4rem] font-light text-border leading-none mb-8 group-hover:text-sm-muted transition-colors duration-300">
+              {s.number}
+            </span>
 
-              <Text fontSize="0.85rem" color="muted" lineHeight={1.8} fontWeight="300">
-                {s.desc}
-              </Text>
+            <h3 className="font-heading text-[1.5rem] font-normal text-ivory leading-[1.2] mb-5">
+              {s.title}
+            </h3>
 
-              <List className="services-card-list" mt={6} spacing={0}>
-                {s.items.map((item) => (
-                  <ListItem
-                    key={item}
-                    fontSize="0.8rem"
-                    color="smMuted"
-                    py="10px"
-                    borderBottom="1px solid"
-                    borderColor="border"
-                    display="flex"
-                    alignItems="center"
-                    gap={3}
-                    letterSpacing="0.03em"
-                  >
-                    <Box
-                      as="span"
-                      display="block"
-                      w="4px"
-                      h="4px"
-                      borderRadius="full"
-                      bg="gold"
-                      opacity={0.6}
-                      flexShrink={0}
-                    />
-                    {item}
-                  </ListItem>
-                ))}
-              </List>
-            </Box>
-          </motion.div>
+            <p className="text-[0.85rem] text-muted leading-[1.8] font-light">
+              {s.desc}
+            </p>
+
+            <ul className="mt-6">
+              {s.items.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-center gap-3 text-[0.8rem] text-sm-muted py-[10px] border-b border-border tracking-[0.03em]"
+                >
+                  <span className="block w-1 h-1 rounded-full bg-gold opacity-60 shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
         ))}
-      </Grid>
-    </Box>
+      </div>
+    </section>
   )
 }

@@ -1,37 +1,14 @@
-import { Box, Flex, Text } from '@chakra-ui/react'
-
 export default function Footer() {
   return (
-    <Box
-      as="footer"
-      className="footer"
-      borderTop="1px solid"
-      borderColor="border"
-      px={{ base: 8, md: 16 }}
-      py={10}
-    >
-      <Flex
-        className="footer-inner"
-        justify="space-between"
-        align="center"
-        flexDirection={{ base: 'column', md: 'row' }}
-        gap={4}
-        textAlign={{ base: 'center', md: 'left' }}
-      >
-        <Text
-          className="footer-brand"
-          fontFamily="heading"
-          fontSize="0.85rem"
-          letterSpacing="0.15em"
-          textTransform="uppercase"
-          color="muted"
-        >
+    <footer className="border-t border-border px-8 md:px-16 py-10">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+        <p className="font-heading text-[0.85rem] tracking-[0.15em] uppercase text-muted">
           Buba Consultancy &nbsp;·&nbsp; Bubker Belkhit
-        </Text>
-        <Text className="footer-copyright" fontSize="0.65rem" letterSpacing="0.1em" color="smMuted">
+        </p>
+        <p className="text-[0.65rem] tracking-[0.1em] text-sm-muted">
           &copy; {new Date().getFullYear()} Buba Consultancy. All rights reserved.
-        </Text>
-      </Flex>
-    </Box>
+        </p>
+      </div>
+    </footer>
   )
 }

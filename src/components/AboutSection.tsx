@@ -1,8 +1,3 @@
-'use client'
-
-import { useRef, useEffect, useState } from 'react'
-import { Box, Grid, Heading, Text } from '@chakra-ui/react'
-import { motion, useInView } from 'framer-motion'
 import SectionLabel from './SectionLabel'
 
 const stats = [
@@ -12,169 +7,63 @@ const stats = [
   { number: '3',   label: 'Continents' },
 ]
 
-const ease = [0.22, 1, 0.36, 1] as const
-
-function fadeUp(delay = 0) {
-  return {
-    initial: { opacity: 0, y: 22 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true as const },
-    transition: { duration: 0.75, delay, ease },
-  }
-}
-
-function useCountUp(target: number, inView: boolean) {
-  const [value, setValue] = useState(0)
-  useEffect(() => {
-    if (!inView) return
-    const duration = 1400
-    const startTime = performance.now()
-    function tick(now: number) {
-      const progress = Math.min((now - startTime) / duration, 1)
-      const eased = 1 - (1 - progress) ** 3
-      setValue(Math.round(eased * target))
-      if (progress < 1) requestAnimationFrame(tick)
-    }
-    requestAnimationFrame(tick)
-  }, [inView, target])
-  return value
-}
-
-function StatCard({ stat }: { stat: { number: string; label: string } }) {
-  const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true })
-  const numericTarget = parseInt(stat.number.replace(/\D/g, ''), 10)
-  const suffix = stat.number.replace(/\d/g, '')
-  const count = useCountUp(numericTarget, inView)
-
-  return (
-    <Box ref={ref} className="about-stat-item" bg="panel" px={8} py={9}>
-      <Text
-        fontFamily="heading"
-        fontSize="3.2rem"
-        fontWeight="300"
-        color="gold"
-        lineHeight={1}
-      >
-        {count}{suffix}
-      </Text>
-      <Text
-        mt={2}
-        fontSize="0.65rem"
-        letterSpacing="0.2em"
-        textTransform="uppercase"
-        color="muted"
-      >
-        {stat.label}
-      </Text>
-    </Box>
-  )
-}
-
 export default function AboutSection() {
   return (
-    <Box
+    <section
       id="about"
-      as="section"
-      className="about-section"
-      scrollMarginTop="80px"
-      px={{ base: 8, md: 16 }}
-      py={{ base: 20, md: 32 }}
-      bg="deep"
-      borderTop="1px solid"
-      borderBottom="1px solid"
-      borderColor="border"
+      className="scroll-mt-20 px-8 md:px-16 py-20 md:py-32 bg-deep border-t border-b border-border"
     >
       <SectionLabel>About</SectionLabel>
 
-      <motion.div {...fadeUp()}>
-        <Heading
-          className="about-headline"
-          fontFamily="heading"
-          fontWeight="300"
-          fontSize={{ base: '2.2rem', md: '3.2rem', lg: '3.8rem' }}
-          lineHeight={1.15}
-          color="ivory"
-        >
-          A career built across
-          <br />
-          <Box as="em" fontStyle="italic" color="gold">continents and kitchens.</Box>
-        </Heading>
-      </motion.div>
+      <h2 className="font-heading font-light text-[2.2rem] md:text-[3.2rem] lg:text-[3.8rem] leading-[1.15] text-ivory">
+        A career built across
+        <br />
+        <em className="italic text-gold">continents and kitchens.</em>
+      </h2>
 
-      <Grid
-        className="about-body"
-        templateColumns={{ base: '1fr', lg: '1fr 1fr' }}
-        gap={{ base: 10, lg: 20 }}
-        mt={14}
-        alignItems="start"
-      >
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 mt-14 items-start">
         {/* Copy */}
-        <Box className="about-copy">
-          <motion.div {...fadeUp(0.05)}>
-            <Text
-              fontFamily="heading"
-              fontSize={{ base: '1.1rem', md: '1.35rem' }}
-              fontWeight="400"
-              color="ivory"
-              lineHeight={1.6}
-              mb={6}
-            >
-              Bubker Belkhit is one of the most experienced restaurant operators working
-              in hospitality consultancy today — a chef who has spent more than two
-              decades not just cooking, but building.
-            </Text>
-          </motion.div>
-
-          <motion.div {...fadeUp(0.1)}>
-            <Text fontSize="0.95rem" color="muted" lineHeight={1.9} mb={6} fontWeight="300">
-              Born in Morocco and shaped by the demanding standards of London&apos;s fine
-              dining circuit, Bubker rose to become Global Executive Head Chef for the
-              acclaimed Sumosan group, overseeing the opening and operation of
-              restaurants across Europe, the Middle East, and beyond.
-            </Text>
-          </motion.div>
-
-          <motion.div {...fadeUp(0.15)}>
-            <Text fontSize="0.95rem" color="muted" lineHeight={1.9} mb={6} fontWeight="300">
-              His expertise spans every dimension of the restaurant: from the creative
-              architecture of a menu to the invisible infrastructure that keeps a
-              kitchen — and a business — running at the highest level. He now brings
-              that knowledge to bear through Buba Consultancy.
-            </Text>
-          </motion.div>
-
-          <motion.div
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            style={{
-              transformOrigin: 'left',
-              width: '40px',
-              height: '1px',
-              background: 'rgba(184,115,51,0.4)',
-              margin: '40px 0',
-            }}
-          />
-
-          <motion.div {...fadeUp(0.2)}>
-            <Text fontSize="0.95rem" color="muted" lineHeight={1.9} fontWeight="300">
-              Bubker&apos;s approach is hands-on and uncompromising. He believes that a
-              restaurant&apos;s lasting success is built in the details — in the quality of
-              the team assembled, the coherence of the menu, and the operational rigour
-              behind every service.
-            </Text>
-          </motion.div>
-        </Box>
+        <div>
+          <p className="font-heading text-[1.1rem] md:text-[1.35rem] font-normal text-ivory leading-[1.6] mb-6">
+            Bubker Belkhit is one of the most experienced restaurant operators working
+            in hospitality consultancy today — a chef who has spent more than two
+            decades not just cooking, but building.
+          </p>
+          <p className="text-[0.95rem] text-muted leading-[1.9] font-light mb-6">
+            Born in Morocco and shaped by the demanding standards of London&apos;s fine
+            dining circuit, Bubker rose to become Global Executive Head Chef for the
+            acclaimed Sumosan group, overseeing the opening and operation of
+            restaurants across Europe, the Middle East, and beyond.
+          </p>
+          <p className="text-[0.95rem] text-muted leading-[1.9] font-light mb-6">
+            His expertise spans every dimension of the restaurant: from the creative
+            architecture of a menu to the invisible infrastructure that keeps a
+            kitchen — and a business — running at the highest level. He now brings
+            that knowledge to bear through Buba Consultancy.
+          </p>
+          <div className="w-10 h-px bg-gold opacity-40 my-10" />
+          <p className="text-[0.95rem] text-muted leading-[1.9] font-light">
+            Bubker&apos;s approach is hands-on and uncompromising. He believes that a
+            restaurant&apos;s lasting success is built in the details — in the quality of
+            the team assembled, the coherence of the menu, and the operational rigour
+            behind every service.
+          </p>
+        </div>
 
         {/* Stats grid */}
-        <Grid className="about-stats" templateColumns="1fr 1fr" gap="1px" bg="border" border="1px solid" borderColor="border">
+        <div className="grid grid-cols-2 gap-px bg-border border border-border">
           {stats.map((s) => (
-            <StatCard key={s.label} stat={s} />
+            <div key={s.label} className="bg-panel px-8 py-9">
+              <p className="font-heading text-[3.2rem] font-light text-gold leading-none">
+                {s.number}
+              </p>
+              <p className="mt-2 text-[0.65rem] tracking-[0.2em] uppercase text-muted">
+                {s.label}
+              </p>
+            </div>
           ))}
-        </Grid>
-      </Grid>
-    </Box>
+        </div>
+      </div>
+    </section>
   )
 }

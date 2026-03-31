@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Box, Flex, Link, HStack } from '@chakra-ui/react'
 
 const links = [
   { label: 'About',    href: '#about' },
@@ -20,55 +19,34 @@ export default function Navbar() {
   }, [])
 
   return (
-    <Box
-      as="nav"
-      className="navbar"
-      position="fixed"
-      top={0}
-      left={0}
-      right={0}
-      zIndex={100}
-      px={{ base: 8, md: 16 }}
-      py={7}
-      transition="background 0.4s"
-      bg={
-        scrolled
+    <nav
+      className="fixed top-0 left-0 right-0 z-[100] px-8 md:px-16 py-7 transition-[background] duration-400"
+      style={{
+        background: scrolled
           ? 'rgba(14,13,12,0.97)'
-          : 'linear-gradient(to bottom, rgba(14,13,12,0.95) 0%, rgba(14,13,12,0) 100%)'
-      }
+          : 'linear-gradient(to bottom, rgba(14,13,12,0.95) 0%, rgba(14,13,12,0) 100%)',
+      }}
     >
-      <Flex className="navbar-inner" justify="space-between" align="center">
-        <Link
-          className="navbar-logo"
+      <div className="flex justify-between items-center">
+        <a
           href="#hero"
-          fontFamily="heading"
-          fontSize="sm"
-          fontWeight="normal"
-          letterSpacing="0.15em"
-          textTransform="uppercase"
-          color="gold"
-          _hover={{ textDecoration: 'none', color: 'goldLight' }}
+          className="font-heading text-sm font-normal tracking-[0.15em] uppercase text-gold hover:text-gold-light transition-colors duration-200"
         >
           Buba Consultancy
-        </Link>
+        </a>
 
-        <HStack className="navbar-links" spacing={10} display={{ base: 'none', md: 'flex' }}>
+        <div className="hidden md:flex gap-10">
           {links.map((l) => (
-            <Link
+            <a
               key={l.href}
               href={l.href}
-              fontSize="0.65rem"
-              letterSpacing="0.2em"
-              textTransform="uppercase"
-              color="muted"
-              _hover={{ textDecoration: 'none', color: 'gold' }}
-              transition="color 0.2s"
+              className="text-[0.65rem] tracking-[0.2em] uppercase text-muted hover:text-gold transition-colors duration-200"
             >
               {l.label}
-            </Link>
+            </a>
           ))}
-        </HStack>
-      </Flex>
-    </Box>
+        </div>
+      </div>
+    </nav>
   )
 }

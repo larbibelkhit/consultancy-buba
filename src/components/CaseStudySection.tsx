@@ -73,7 +73,7 @@ export default function CaseStudySection() {
             {locations.map((loc) => (
               <div
                 key={loc.city}
-                className="flex justify-between items-center gap-5 bg-panel px-7 py-5 transition-all duration-200 hover:bg-[rgba(0,98,51,0.06)] hover:shadow-[inset_2px_0_0_rgba(0,98,51,0.7)] cursor-default"
+                className="flex justify-between items-center gap-5 bg-panel px-7 py-5 transition-all duration-200 hover:bg-green/6 hover:shadow-[inset_2px_0_0] hover:shadow-green/70 cursor-default"
               >
                 <span className="font-heading text-[1.05rem] font-normal text-ivory">
                   {loc.city}

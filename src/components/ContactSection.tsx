@@ -101,7 +101,7 @@ export default function ContactSection() {
             type="submit"
             className={`self-start px-10 py-3 text-[0.7rem] tracking-[0.2em] uppercase font-medium transition-colors duration-200 ${
               sent
-                ? 'bg-[#2a7d4f] text-black cursor-default'
+                ? 'bg-green/80 text-black cursor-default'
                 : 'bg-green text-black hover:bg-green-light'
             }`}
           >

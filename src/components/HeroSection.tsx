@@ -7,11 +7,11 @@ export default function HeroSection() {
       {/* Background glow */}
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 70% 40%, rgba(0,98,51,0.07) 0%, transparent 60%)' }}
+        style={{ background: 'radial-gradient(ellipse at 70% 40%, color-mix(in srgb, var(--color-green) 7%, transparent) 0%, transparent 60%)' }}
       />
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 20% 80%, rgba(0,98,51,0.04) 0%, transparent 50%)' }}
+        style={{ background: 'radial-gradient(ellipse at 20% 80%, color-mix(in srgb, var(--color-green) 4%, transparent) 0%, transparent 50%)' }}
       />
 
       <p className="text-[0.65rem] tracking-[0.35em] uppercase text-green mb-5">

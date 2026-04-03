@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import SectionLabel from './SectionLabel'
 
 const locations = [
@@ -22,20 +23,35 @@ export default function CaseStudySection() {
       <SectionLabel>Case Study</SectionLabel>
 
       {/* Header row */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-end mb-16">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-start mb-16">
         <h2 className="font-heading font-light text-[2.2rem] md:text-[3.2rem] lg:text-[3.8rem] leading-[1.15] text-ivory">
           A partnership
           <br />
           built on <em className="italic text-green">trust.</em>
         </h2>
 
-        <div>
+        <div className="lg:pt-4">
+          {/* Full logo (icon + text) on desktop, text-only on mobile */}
+          <Image
+            src="/sumosan-full-logo.svg"
+            alt="Sumosan"
+            width={306}
+            height={213}
+            className="hidden md:block w-full max-w-[280px] h-auto mb-6 dark:invert-0 invert"
+          />
+          <Image
+            src="/sumosan-text-logo.svg"
+            alt="Sumosan"
+            width={160}
+            height={17}
+            className="block md:hidden h-5 w-auto mb-4 dark:invert-0 invert"
+          />
           <p className="text-[0.85rem] font-normal tracking-[0.2em] uppercase text-green mb-3">
-            Sumosan &nbsp;·&nbsp; 25+ Years
+            25+ Years
           </p>
           <p className="text-[0.85rem] text-muted leading-[1.7] max-w-[400px] font-light">
             From a single London address to a globally recognised Japanese restaurant
-            group — Bubker has been the culinary architect behind every opening.
+            group — Bubker has been the culinary architect behind every opening for the company&apos;s expansion.
           </p>
         </div>
       </div>

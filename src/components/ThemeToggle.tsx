@@ -1,17 +1,26 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function ThemeToggle() {
-  const [dark, setDark] = useState(
-    () => typeof window !== 'undefined' && document.documentElement.classList.contains('dark')
-  )
+  const [mounted, setMounted] = useState(false)
+  const [dark, setDark] = useState(false)
+
+  useEffect(() => {
+    setDark(document.documentElement.classList.contains('dark'))
+    setMounted(true)
+  }, [])
 
   function toggle() {
     const next = !dark
     setDark(next)
     document.documentElement.classList.toggle('dark', next)
     localStorage.setItem('theme', next ? 'dark' : 'light')
+  }
+
+  // Render a placeholder with the same dimensions before mount to avoid layout shift
+  if (!mounted) {
+    return <div className="w-12 h-6" />
   }
 
   return (

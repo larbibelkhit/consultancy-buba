@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   /* Fonts */
   --font-family-heading: 'Cormorant Garant', Georgia, serif;
@@ -13,8 +15,8 @@
   --color-green:      #006233;
   --color-green-light:#004d28;
   --color-ivory:      #1a1f1c;
-  --color-muted:      #6b7068;
-  --color-sm-muted:   #9a9893;
+  --color-muted:      #4a4f4c;
+  --color-sm-muted:   #7a7872;
 
   /* Custom durations */
   --transition-duration-400: 400ms;

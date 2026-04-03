@@ -12,7 +12,7 @@ export default function ContactSection() {
     setTimeout(() => setSent(false), 3000)
   }
 
-  const fieldClass = 'w-full bg-panel border border-border text-ivory font-light placeholder:text-sm-muted focus:outline-none focus:border-gold py-2.5 px-3 text-[0.9rem]'
+  const fieldClass = 'w-full bg-panel border border-border text-ivory font-light placeholder:text-sm-muted focus:outline-none focus:border-green py-2.5 px-3 text-[0.9rem]'
   const labelClass = 'block text-[0.6rem] tracking-[0.25em] uppercase text-sm-muted mb-2'
 
   return (
@@ -28,10 +28,10 @@ export default function ContactSection() {
           <h2 className="font-heading font-light text-[2.2rem] md:text-[3.2rem] lg:text-[3.8rem] leading-[1.15] text-ivory">
             Let&apos;s discuss
             <br />
-            your <em className="italic text-gold">project.</em>
+            your <em className="italic text-green">project.</em>
           </h2>
 
-          <div className="w-10 h-px bg-gold opacity-40 my-10" />
+          <div className="w-10 h-px bg-green opacity-40 my-10" />
 
           <p className="text-[0.95rem] text-muted leading-[1.9] font-light max-w-[420px]">
             Buba Consultancy works with a select number of clients at any one time to
@@ -101,8 +101,8 @@ export default function ContactSection() {
             type="submit"
             className={`self-start px-10 py-3 text-[0.7rem] tracking-[0.2em] uppercase font-medium transition-colors duration-200 ${
               sent
-                ? 'bg-[#4a7c59] text-ivory cursor-default'
-                : 'bg-gold text-black hover:bg-gold-light'
+                ? 'bg-[#2a7d4f] text-black cursor-default'
+                : 'bg-green text-black hover:bg-green-light'
             }`}
           >
             {sent ? 'Message Sent ✓' : 'Send Enquiry →'}

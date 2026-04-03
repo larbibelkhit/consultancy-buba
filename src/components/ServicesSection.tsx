@@ -48,7 +48,7 @@ export default function ServicesSection() {
       <SectionLabel>Services</SectionLabel>
 
       <h2 className="font-heading font-light text-[2.2rem] md:text-[3.2rem] lg:text-[3.8rem] leading-[1.15] text-ivory">
-        What <em className="italic text-gold">Buba Consultancy</em>
+        What <em className="italic text-green">Buba Consultancy</em>
         <br />brings to your project.
       </h2>
 
@@ -64,8 +64,8 @@ export default function ServicesSection() {
             key={s.number}
             className="bg-deep px-8 md:px-10 py-10 md:py-14 relative overflow-hidden group hover:bg-panel transition-colors duration-300"
           >
-            {/* Gold left bar */}
-            <div className="absolute top-0 left-0 w-0.5 h-0 bg-gold group-hover:h-full transition-[height] duration-400" />
+            {/* Green left bar */}
+            <div className="absolute top-0 left-0 w-0.5 h-0 bg-green group-hover:h-full transition-[height] duration-400" />
 
             <span className="block font-heading text-[4rem] font-light text-border leading-none mb-8 group-hover:text-sm-muted transition-colors duration-300">
               {s.number}
@@ -85,7 +85,7 @@ export default function ServicesSection() {
                   key={item}
                   className="flex items-center gap-3 text-[0.8rem] text-sm-muted py-[10px] border-b border-border tracking-[0.03em]"
                 >
-                  <span className="block w-1 h-1 rounded-full bg-gold opacity-60 shrink-0" />
+                  <span className="block w-1 h-1 rounded-full bg-green opacity-60 shrink-0" />
                   {item}
                 </li>
               ))}

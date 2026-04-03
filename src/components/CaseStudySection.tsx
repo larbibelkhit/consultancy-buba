@@ -26,11 +26,11 @@ export default function CaseStudySection() {
         <h2 className="font-heading font-light text-[2.2rem] md:text-[3.2rem] lg:text-[3.8rem] leading-[1.15] text-ivory">
           A partnership
           <br />
-          built on <em className="italic text-gold">trust.</em>
+          built on <em className="italic text-green">trust.</em>
         </h2>
 
         <div>
-          <p className="text-[0.85rem] font-normal tracking-[0.2em] uppercase text-gold mb-3">
+          <p className="text-[0.85rem] font-normal tracking-[0.2em] uppercase text-green mb-3">
             Sumosan &nbsp;·&nbsp; 25+ Years
           </p>
           <p className="text-[0.85rem] text-muted leading-[1.7] max-w-[400px] font-light">
@@ -73,7 +73,7 @@ export default function CaseStudySection() {
             {locations.map((loc) => (
               <div
                 key={loc.city}
-                className="flex justify-between items-center gap-5 bg-panel px-7 py-5 transition-all duration-200 hover:bg-[rgba(184,115,51,0.06)] hover:shadow-[inset_2px_0_0_rgba(184,115,51,0.7)] cursor-default"
+                className="flex justify-between items-center gap-5 bg-panel px-7 py-5 transition-all duration-200 hover:bg-[rgba(0,98,51,0.06)] hover:shadow-[inset_2px_0_0_rgba(0,98,51,0.7)] cursor-default"
               >
                 <span className="font-heading text-[1.05rem] font-normal text-ivory">
                   {loc.city}

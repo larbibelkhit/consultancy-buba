@@ -18,7 +18,7 @@ export default function AboutSection() {
       <h2 className="font-heading font-light text-[2.2rem] md:text-[3.2rem] lg:text-[3.8rem] leading-[1.15] text-ivory">
         A career built across
         <br />
-        <em className="italic text-gold">continents and kitchens.</em>
+        <em className="italic text-green">continents and kitchens.</em>
       </h2>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 mt-14 items-start">
@@ -41,7 +41,7 @@ export default function AboutSection() {
             kitchen — and a business — running at the highest level. He now brings
             that knowledge to bear through Buba Consultancy.
           </p>
-          <div className="w-10 h-px bg-gold opacity-40 my-10" />
+          <div className="w-10 h-px bg-green opacity-40 my-10" />
           <p className="text-[0.95rem] text-muted leading-[1.9] font-light">
             Bubker&apos;s approach is hands-on and uncompromising. He believes that a
             restaurant&apos;s lasting success is built in the details — in the quality of
@@ -54,7 +54,7 @@ export default function AboutSection() {
         <div className="grid grid-cols-2 gap-px bg-border border border-border">
           {stats.map((s) => (
             <div key={s.label} className="bg-panel px-8 py-9">
-              <p className="font-heading text-[3.2rem] font-light text-gold leading-none">
+              <p className="font-heading text-[3.2rem] font-light text-green leading-none">
                 {s.number}
               </p>
               <p className="mt-2 text-[0.65rem] tracking-[0.2em] uppercase text-muted">

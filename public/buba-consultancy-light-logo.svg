@@ -1,0 +1,21 @@
+<svg width="980" height="160" viewBox="0 0 980 160" xmlns="http://www.w3.org/2000/svg">
+  <!-- Top-left bracket — dark in light mode -->
+  <path d="M 36 80 L 36 36 L 80 36"
+        fill="none" stroke="#0A0A0A" stroke-width="7"
+        stroke-linecap="square" stroke-linejoin="miter"/>
+
+  <!-- Bottom-right bracket — brand green -->
+  <path d="M 108 80 L 108 124 L 64 124"
+        fill="none" stroke="#006233" stroke-width="7"
+        stroke-linecap="square" stroke-linejoin="miter"/>
+
+  <!-- Wordmark -->
+  <text
+    x="134" y="80"
+    font-family="Jost, Inter, Arial, sans-serif"
+    font-size="88"
+    font-weight="400"
+    dominant-baseline="middle"
+    fill="#006233"
+    letter-spacing="-1">Buba Consultancy</text>
+</svg>

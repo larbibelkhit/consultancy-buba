@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import ThemeToggle from './ThemeToggle'
 
 const links = [
@@ -31,11 +32,23 @@ export default function Navbar() {
       }
     >
       <div className="flex justify-between items-center">
-        <a
-          href="#hero"
-          className="font-heading text-sm font-normal tracking-[0.15em] uppercase text-green hover:text-green-light transition-colors duration-200"
-        >
-          Buba Consultancy
+        <a href="#hero" className="flex items-center">
+          <Image
+            src="/buba-consultancy-light-logo.svg"
+            alt="Buba Consultancy"
+            width={245}
+            height={40}
+            className="dark:hidden"
+            priority
+          />
+          <Image
+            src="/buba-consultancy-dark-logo.svg"
+            alt="Buba Consultancy"
+            width={245}
+            height={40}
+            className="hidden dark:block"
+            priority
+          />
         </a>
 
         <div className="flex items-center gap-10">

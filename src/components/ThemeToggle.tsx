@@ -1,24 +1,39 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useSyncExternalStore } from 'react'
+
+let listeners: (() => void)[] = []
+
+function subscribe(cb: () => void) {
+  listeners.push(cb)
+  return () => {
+    listeners = listeners.filter((l) => l !== cb)
+  }
+}
+
+function getSnapshot() {
+  return document.documentElement.classList.contains('dark')
+}
+
+function getServerSnapshot() {
+  return false
+}
+
+function toggle() {
+  const next = !document.documentElement.classList.contains('dark')
+  document.documentElement.classList.toggle('dark', next)
+  localStorage.setItem('theme', next ? 'dark' : 'light')
+  listeners.forEach((l) => l())
+}
+
+const isMountedSubscribe = () => () => {}
+const isMountedClient = () => true
+const isMountedServer = () => false
 
 export default function ThemeToggle() {
-  const [mounted, setMounted] = useState(false)
-  const [dark, setDark] = useState(false)
+  const mounted = useSyncExternalStore(isMountedSubscribe, isMountedClient, isMountedServer)
+  const dark = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
 
-  useEffect(() => {
-    setDark(document.documentElement.classList.contains('dark'))
-    setMounted(true)
-  }, [])
-
-  function toggle() {
-    const next = !dark
-    setDark(next)
-    document.documentElement.classList.toggle('dark', next)
-    localStorage.setItem('theme', next ? 'dark' : 'light')
-  }
-
-  // Render a placeholder with the same dimensions before mount to avoid layout shift
   if (!mounted) {
     return <div className="w-12 h-6" />
   }

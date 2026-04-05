@@ -2,7 +2,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col justify-end px-8 md:px-16 pt-12 md:pt-20 pb-12 md:pb-28 relative overflow-hidden"
+      className="min-h-screen flex flex-col justify-center md:justify-end px-8 md:px-16 pt-12 md:pt-20 pb-12 md:pb-28 relative overflow-hidden"
     >
       {/* Background glow */}
       <div

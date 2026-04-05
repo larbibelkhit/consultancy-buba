@@ -18,7 +18,7 @@ export default function CaseStudySection() {
   return (
     <section
       id="case-study"
-      className="scroll-mt-20 px-8 md:px-16 py-20 md:py-32 bg-deep border-t border-b border-border"
+      className="scroll-mt-20 px-8 md:px-16 py-20 md:py-32 bg-deep"
     >
       <SectionLabel>Case Study</SectionLabel>
 

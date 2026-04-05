@@ -11,7 +11,7 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="scroll-mt-20 px-8 md:px-16 py-20 md:py-32 bg-deep border-t border-b border-border"
+      className="scroll-mt-20 px-8 md:px-16 py-20 md:py-32"
     >
       <SectionLabel>About</SectionLabel>
 

@@ -99,7 +99,7 @@ export default function ContactSection() {
 
           <button
             type="submit"
-            className={`self-start px-10 py-3 text-[0.7rem] rounded-sm tracking-[0.2em] font-medium transition-colors duration-200 ${
+            className={`self-start px-10 py-3 text-[0.85rem] rounded-xs tracking-[0.2em] font-medium transition-colors duration-200 ${
               sent
                 ? 'bg-green/80 text-black cursor-default'
                 : 'bg-green text-black hover:bg-green-light'

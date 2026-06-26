@@ -1,10 +1,31 @@
-'use client'
-
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import { ChevronDown } from 'lucide-react'
 import SectionLabel from './SectionLabel'
+
+const serviceOptions = [
+  { value: '', label: 'Select a service' },
+  { value: 'new-opening', label: 'New Restaurant Opening' },
+  { value: 'menu', label: 'Menu Design & Development' },
+  { value: 'staffing', label: 'Back-Office & Staffing' },
+  { value: 'full', label: 'Full Consultancy Engagement' },
+  { value: 'other', label: 'Other' },
+]
 
 export default function ContactSection() {
   const [sent, setSent] = useState(false)
+  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [selectedService, setSelectedService] = useState('')
+  const dropdownRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const onClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', onClickOutside)
+    return () => document.removeEventListener('mousedown', onClickOutside)
+  }, [])
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -12,7 +33,7 @@ export default function ContactSection() {
     setTimeout(() => setSent(false), 3000)
   }
 
-  const fieldClass = 'w-full bg-panel border border-border text-ivory font-light placeholder:text-sm-muted focus:outline-none focus:border-green py-2.5 px-3 text-[0.9rem]'
+  const fieldClass = 'w-full bg-panel border border-border text-ivory font-light placeholder:text-sm-muted focus:outline-none focus:border-green py-2.5 px-3 text-[0.9rem] rounded-xs'
   const labelClass = 'block text-[0.6rem] tracking-[0.25em] uppercase text-sm-muted mb-2'
 
   return (
@@ -23,7 +44,6 @@ export default function ContactSection() {
       <SectionLabel>Contact</SectionLabel>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-28 mt-4">
-        {/* Left */}
         <div>
           <h2 className="font-heading font-light text-[2.2rem] md:text-[3.2rem] lg:text-[3.8rem] leading-[1.15] text-ivory">
             Let&apos;s discuss
@@ -58,7 +78,6 @@ export default function ContactSection() {
           </div>
         </div>
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
@@ -76,16 +95,39 @@ export default function ContactSection() {
             <input placeholder="Restaurant or group name" className={fieldClass} />
           </div>
 
-          <div>
+          <div ref={dropdownRef} className="relative">
             <label className={labelClass}>Area of Interest</label>
-            <select className={`${fieldClass} cursor-pointer`}>
-              <option value="">Select a service</option>
-              <option value="new-opening">New Restaurant Opening</option>
-              <option value="menu">Menu Design &amp; Development</option>
-              <option value="staffing">Back-Office &amp; Staffing</option>
-              <option value="full">Full Consultancy Engagement</option>
-              <option value="other">Other</option>
-            </select>
+            <button
+              type="button"
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+              className={`${fieldClass} flex items-center justify-between text-left ${
+                selectedService ? '' : 'text-sm-muted'
+              }`}
+            >
+              <span>{serviceOptions.find(o => o.value === selectedService)?.label ?? 'Select a service'}</span>
+              <ChevronDown
+                size={16}
+                className={`text-sm-muted transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`}
+              />
+            </button>
+            {dropdownOpen && (
+              <div className="absolute z-50 top-full left-0 right-0 mt-1 bg-panel border border-border rounded-xs shadow-lg overflow-hidden">
+                {serviceOptions.filter(o => o.value !== '').map((o) => (
+                  <button
+                    key={o.value}
+                    type="button"
+                    onClick={() => { setSelectedService(o.value); setDropdownOpen(false) }}
+                    className={`w-full text-left px-3 py-2.5 text-[0.85rem] font-light transition-colors duration-150 ${
+                      selectedService === o.value
+                        ? 'text-green bg-green/8'
+                        : 'text-muted hover:text-ivory hover:bg-border/50'
+                    }`}
+                  >
+                    {o.label}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           <div>

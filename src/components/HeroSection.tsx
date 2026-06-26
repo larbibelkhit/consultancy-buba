@@ -32,10 +32,9 @@ export default function HeroSection() {
 
       <a
         href="#contact"
-        className="mt-5 md:mt-12 inline-flex items-center gap-4 text-[0.8rem] tracking-[0.25em] text-green group hover:gap-6 transition-[gap] duration-300"
+        className="mt-5 md:mt-12 inline-block self-start px-10 py-3 text-[0.85rem] rounded-xs tracking-[0.2em] font-medium bg-green text-black hover:px-14 transition-all duration-300 hover:bg-green-light"
       >
-        Begin a Conversation
-        <span className="block w-10 h-px bg-green group-hover:w-14 transition-[width] duration-300" />
+        Begin a Conversation &rarr;
       </a>
 
       <p

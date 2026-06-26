@@ -1,8 +1,10 @@
+import { Store, ChefHat, Users } from 'lucide-react'
 import SectionLabel from './SectionLabel'
+import type { LucideIcon } from 'lucide-react'
 
-const services = [
+const services: { icon: LucideIcon; title: string; desc: string; items: string[] }[] = [
   {
-    number: '01',
+    icon: Store,
     title: 'Restaurant Setup & New Openings',
     desc: 'End-to-end consultancy for new restaurant projects, from initial concept definition through to opening night and beyond.',
     items: [
@@ -14,7 +16,7 @@ const services = [
     ],
   },
   {
-    number: '02',
+    icon: ChefHat,
     title: 'Menu Design & Development',
     desc: 'Menus that reflect a clear culinary identity, balance commercial performance with creativity, and evolve with your business.',
     items: [
@@ -26,7 +28,7 @@ const services = [
     ],
   },
   {
-    number: '03',
+    icon: Users,
     title: 'Back-Office & Staffing',
     desc: 'The team and the systems behind a successful restaurant are as important as what happens on the plate. Bubker builds both.',
     items: [
@@ -61,15 +63,17 @@ export default function ServicesSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
         {services.map((s) => (
           <div
-            key={s.number}
+            key={s.title}
             className="bg-deep px-8 md:px-10 py-10 md:py-14 relative overflow-hidden group hover:bg-panel transition-colors duration-300"
           >
             {/* Green left bar */}
             <div className="absolute top-0 left-0 w-0.5 h-0 bg-green group-hover:h-full transition-[height] duration-400" />
 
-            <span className="block font-heading text-[4rem] font-light text-border leading-none mb-8 group-hover:text-sm-muted transition-colors duration-300">
-              {s.number}
-            </span>
+            <s.icon
+              size={36}
+              strokeWidth={1}
+              className="mb-8 text-green opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+            />
 
             <h3 className="font-heading text-[1.5rem] font-normal text-ivory leading-[1.2] mb-5">
               {s.title}

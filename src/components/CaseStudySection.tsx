@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import SectionLabel from './SectionLabel'
 
 const locations = [
@@ -22,7 +21,6 @@ export default function CaseStudySection() {
     >
       <SectionLabel>Case Study</SectionLabel>
 
-      {/* Header row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-start mb-16">
         <h2 className="font-heading font-light text-[2.2rem] md:text-[3.2rem] lg:text-[3.8rem] leading-[1.15] text-ivory">
           A partnership
@@ -31,15 +29,14 @@ export default function CaseStudySection() {
         </h2>
 
         <div className="lg:pt-4">
-          {/* Full logo (icon + text) on desktop, text-only on mobile */}
-          <Image
+          <img
             src="/sumosan-full-logo.svg"
             alt="Sumosan"
             width={306}
             height={213}
             className="hidden md:block w-full max-w-[280px] h-auto mb-6 dark:invert-0 invert"
           />
-          <Image
+          <img
             src="/sumosan-text-logo.svg"
             alt="Sumosan"
             width={160}
@@ -56,9 +53,7 @@ export default function CaseStudySection() {
         </div>
       </div>
 
-      {/* Body */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
-        {/* Narrative */}
         <div>
           <p className="font-heading text-[1.1rem] md:text-[1.25rem] font-normal text-ivory leading-[1.6] mb-6">
             In 2002, Bubker joined the Sumosan group at their celebrated Albemarle
@@ -80,7 +75,6 @@ export default function CaseStudySection() {
           </p>
         </div>
 
-        {/* Location table */}
         <div>
           <p className="text-[0.65rem] tracking-[0.2em] uppercase text-sm-muted mb-4">
             Locations opened or operated

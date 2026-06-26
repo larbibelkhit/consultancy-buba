@@ -1,5 +1,3 @@
-'use client'
-
 import { useSyncExternalStore } from 'react'
 
 let listeners: (() => void)[] = []
@@ -15,10 +13,6 @@ function getSnapshot() {
   return document.documentElement.classList.contains('dark')
 }
 
-function getServerSnapshot() {
-  return false
-}
-
 function toggle() {
   const next = !document.documentElement.classList.contains('dark')
   document.documentElement.classList.toggle('dark', next)
@@ -26,17 +20,8 @@ function toggle() {
   listeners.forEach((l) => l())
 }
 
-const isMountedSubscribe = () => () => {}
-const isMountedClient = () => true
-const isMountedServer = () => false
-
 export default function ThemeToggle() {
-  const mounted = useSyncExternalStore(isMountedSubscribe, isMountedClient, isMountedServer)
-  const dark = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
-
-  if (!mounted) {
-    return <div className="w-12 h-6" />
-  }
+  const dark = useSyncExternalStore(subscribe, getSnapshot, () => false)
 
   return (
     <button
@@ -44,7 +29,6 @@ export default function ThemeToggle() {
       aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
       className="relative w-12 h-6 rounded-full bg-border transition-colors duration-300 flex items-center cursor-pointer"
     >
-      {/* Track icons */}
       <svg
         className="absolute left-1 w-3.5 h-3.5 text-sm-muted"
         viewBox="0 0 24 24"
@@ -76,7 +60,6 @@ export default function ThemeToggle() {
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
       </svg>
 
-      {/* Thumb */}
       <span
         className={`absolute top-0.5 w-5 h-5 rounded-full bg-green shadow-sm transition-[left] duration-300 ${
           dark ? 'left-[26px]' : 'left-0.5'

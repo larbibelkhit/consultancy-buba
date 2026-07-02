@@ -31,9 +31,9 @@ export default function Navbar() {
     <>
       <nav className="fixed top-0 left-0 right-0 z-[100] flex justify-center px-4 pt-4">
         <div
-          className={`flex md:grid md:grid-cols-[1fr_auto_1fr] items-center justify-between w-full max-w-5xl px-5 py-3 rounded-2xl border transition-all duration-500 ${
+          className={`flex md:grid md:grid-cols-[1fr_auto_1fr] items-center justify-between w-full max-w-5xl px-5 py-3 rounded-xs border transition-all duration-500 ${
             scrolled
-              ? 'bg-black/80 backdrop-blur-xl border-border shadow-lg'
+              ? 'bg-black/80 backdrop-blur-xl border-green/40 shadow-lg'
               : 'bg-black/40 backdrop-blur-md border-transparent'
           }`}
         >
@@ -61,7 +61,7 @@ export default function Navbar() {
               <a
                 key={l.href}
                 href={l.href}
-                className="px-3.5 py-1.5 text-[0.82rem] tracking-wide text-muted hover:text-ivory rounded-lg hover:bg-panel/60 transition-all duration-200"
+                className="px-3.5 py-1.5 text-[0.82rem] tracking-wide text-muted hover:text-ivory rounded-xs hover:bg-panel/60 transition-all duration-200"
               >
                 {l.label}
               </a>
